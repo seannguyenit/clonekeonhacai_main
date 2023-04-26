@@ -1,0 +1,58 @@
+extend layout
+
+block header
+  include header.pug
+
+block content
+  #content.site-content
+    .ast-container
+      #primary.content-area.primary
+        main#main.site-main
+          article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
+            header.entry-header.ast-header-without-markup.entry-content.clear
+              h1 Tin tức bóng đá tổng hợp
+              #fullwidthMobi
+                .wrap-keonhacai
+                  .heading_table
+                    each ncate in data 
+                      hr
+                      h3.news-cate #{ncate.name}
+                      
+                      each news in ncate.news
+                        .news-content
+                          .news-thumb
+                            a(href=`/tin-tuc/${news.id}`) 
+                              img(src=`http://asset.asiasport.com/${news.coverImage}`, alt=`${news.title}`)
+                          .news-text
+                            .news-title 
+                              a(href=`/tin-tuc/${news.id}`) #{news.title}
+                            .news-time 
+                              #{news.publishedOn} 
+
+                  
+      #secondary.widget-area.secondary(itemtype='https://schema.org/WPSideBar' itemscope='itemscope')
+        .sidebar-main
+          aside#block-2.widget.widget_block
+            .elementor.elementor-537(data-elementor-type='section' data-elementor-id='537')
+              each m in menu
+                section.elementor-section.elementor-top-section.elementor-element.elementor-element-53e8a67.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default(data-id='53e8a67' data-element_type='section')
+                .elementor-container.elementor-column-gap-default
+                  .elementor-column.elementor-col-100.elementor-top-column.elementor-element.elementor-element-b752b9b(data-id='b752b9b' data-element_type='column' data-settings='{"background_background":"classic"}')
+                    .elementor-widget-wrap.elementor-element-populated
+                      .elementor-background-overlay
+                      .elementor-element.elementor-element-a0f34fa.elementor-widget.elementor-widget-heading(data-id='a0f34fa' data-element_type='widget' data-widget_type='heading.default')
+                        .elementor-widget-container
+                          p.elementor-heading-title.elementor-size-medium #{m.showname}
+                      .elementor-element.elementor-element-9c1a605.elementor-align-left.elementor-icon-list--layout-traditional.elementor-list-item-link-full_width.elementor-widget.elementor-widget-icon-list(data-id='9c1a605' data-element_type='widget' data-widget_type='icon-list.default')
+                        .elementor-widget-container
+                          ul.elementor-icon-list-items
+                            each l in m.menu
+                              li.elementor-icon-list-item
+                                a(href=`/${l.action}`)
+                                  span.elementor-icon-list-icon
+                                    i.fas.fa-circle(aria-hidden='true')
+                                  span.elementor-icon-list-text #{l.country}
+
+
+block footer
+  include footer.pug
