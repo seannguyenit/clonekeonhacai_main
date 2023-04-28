@@ -1,0 +1,23 @@
+extend layout
+
+block header
+  include header.pug
+
+block content
+  #content.site-content
+    .ast-container
+      #primary.content-area.primary
+        main#main.site-main
+          article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
+            header.entry-header.ast-header-without-markup.entry-content.clear
+            .wrap-table-pg
+                .info-box.football-ranking
+                    .box-bxh
+                    h1.text-center #{title}
+                    div 
+                        #{data}
+      include left-menu.pug
+
+
+block footer
+  include footer.pug

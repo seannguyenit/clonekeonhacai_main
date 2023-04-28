@@ -1,0 +1,57 @@
+extend layout
+
+block header
+  include header.pug
+
+block content
+  #content.site-content
+    .ast-container
+      #primary.content-area.primary
+        main#main.site-main
+          article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
+            header.entry-header.ast-header-without-markup.entry-content.clear
+            .wrap-table-pg
+                .info-box.football-ranking
+                    .box-bxh
+                    h1.text-center #{title}
+                    each league in data
+                        h2.league-name #{league.tableName} vòng #{league.currRound}
+                        .table-scrol-x
+                        table.table-bxh
+                            tbody
+                                tr
+                                    th.w-stt #
+                                    th.w-ten-clb Câu lạc bộ
+                                    th.th-data Trận
+                                    th.th-data T
+                                    th.th-data H
+                                    th.th-data B
+                                    th.th-data BT
+                                    th.th-data BB
+                                    th.th-data HS
+                                    th.th-data Điểm
+                                each team, index in league.total
+                                    tr
+                                        td
+                                            span(class=`${team.promotionColor}`) #{index+1}
+                                        td
+                                            span.link-clb
+                                            img.entered.lazyloaded(src=`https://img.sports168.com/${team.logo}` data-lazy-src=`https://img.sports168.com/${team.logo}` data-ll-status='loaded')
+                                            noscript
+                                                img(src=`https://img.sports168.com/${team.logo}`)
+                                            |  #{team.teamName}
+                                        td #{team.gamesPlayed}
+                                        td #{team.gamesWon}
+                                        td #{team.gamesDrawn}
+                                        td #{team.gamesLost}
+                                        td #{team.gamesScored}
+                                        td #{team.gamesAgainst}
+                                        td #{team.goalsDifference}
+                                        td #{team.points}
+                        hr
+                                
+      include left-menu.pug
+
+
+block footer
+  include footer.pug

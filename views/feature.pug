@@ -1,0 +1,46 @@
+extend layout
+
+block header
+    include header.pug
+
+block content
+    #content.site-content
+        .ast-container
+            #primary.content-area.primary
+                main#main.site-main
+                    article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
+                        header.entry-header.ast-header-without-markup.entry-content.clear
+                            h1 #{title}
+                            #fullwidthMobi
+                                .wrap-keonhacai
+                                    .heading_table
+                                        if data
+                                            each league in data.matchDateList
+                                                hr
+                                                div.giaidau.d-flex
+                                                    img(src=`http://asset.asiasport.com/${data.logo}`, alt=`${league.leagueName}`)
+                                                    h3 #{league.matchDate}
+                                                hr
+                                                each match in league.matchList
+                                                    .match
+                                                        .matchtime 
+                                                            span #{match.matchTime} - #{match.matchDate}
+                                                        .trandau 
+                                                                div.hometeam
+                                                                    span #{match.opponents[0].name}
+                                                                    img(src=`http://asset.asiasport.com/${match.opponents[0].logo}`, alt=`${match.opponents[0].name}`, width="25px")
+                                                                div.tyso
+                                                                    span #{match.opponents[0].score} - #{match.opponents[1].score}
+                                                                div.awayteam
+                                                                    img(src=`http://asset.asiasport.com/${match.opponents[1].logo}`, alt=`${match.opponents[1].name}`, width="25px")
+                                                                    span #{match.opponents[1].name}
+                                        else    
+                                            span Không có dữ liệu
+
+
+
+            include left-menu.pug
+
+
+block footer
+    include footer.pug

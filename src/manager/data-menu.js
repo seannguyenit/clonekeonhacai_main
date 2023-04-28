@@ -7,19 +7,20 @@ module.exports = {
             {
                 showname: 'Kết Quả Bóng Đá',
                 name: 'KQ',
-                action: 'kq',
+                action: 'ket-qua-bong-da',
                 order: 0
             },
             {
                 showname: 'Bảng Xếp Hạng',
                 name: 'BXH',
-                action: 'bxh',
+                action: 'bang-xep-hang',
                 order: 1
             },
             {
                 showname: 'Lịch Thi Đấu',
                 name: 'LTĐ',
-                action: 'ltd',
+                action: 'lich-thi-dau',
+                use_key: 1,
                 order: 2
             }
         ]
@@ -27,43 +28,50 @@ module.exports = {
         var LIST_MAIN_MENU = [
             {
                 action: 'anh',
-                value: 0,
+                value: 36,
+                key: 'english-premier-league-36',
                 country: 'Anh',
                 order: 0
             },
             {
                 action: 'duc',
-                value: 0,
+                value: 8,
+                key: 'german-bundesliga-8',
                 country: 'Đức',
                 order: 1
             },
             {
                 action: 'phap',
-                value: 0,
+                value: 11,
+                key: 'france-ligue-1-11',
                 country: 'Pháp',
                 order: 2
             },
             {
                 action: 'y',
-                value: 0,
+                value: 34,
+                key: 'italian-serie-a-34',
                 country: 'Ý',
                 order: 3
             },
             {
                 action: 'europan-league',
-                value: 0,
-                country: '',
+                value: 113,
+                key: 'uefa-europa-league-113',
+                country: 'Europa League',
                 order: 4
             },
             {
                 action: 'champions-league',
-                value: 0,
+                value: 1864,
+                key: 'uefa-champions-league-103',
                 country: 'Champions League',
                 order: 5
             },
             {
                 action: 'viet-nam',
                 value: 0,
+                key: 'english-premier-league-36',
                 country: 'Việt Nam',
                 order: 6
             },
@@ -71,7 +79,7 @@ module.exports = {
         const combile_menu = (new_symbol, new_action) => {
             let rs = LIST_MAIN_MENU.map(m => {
                 let _c = new_symbol + ' ' + m.country;
-                let _a = new_action + '-' + m.action;
+                let _a = new_action;
                 return { ...m, country: _c, action: _a };
             });
             return rs
