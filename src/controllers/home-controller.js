@@ -1,7 +1,7 @@
 'use strict';
 
 let { menu } = require('../manager/data-menu');
-const { get_all_match, get_all_match_today, get_all_match_by_league, get_all_match_fixture } = require('../manager/match');
+const { get_all_match, get_all_match_today, get_all_match_by_league, get_all_match_fixture, get_all_nearly_day } = require('../manager/match');
 const { get_news, get_news_content } = require('../manager/news');
 const { get_all_rank, get_all_rank_by_league } = require('../manager/ranking');
 const { get_today_info } = require('../manager/schedule');
@@ -36,28 +36,34 @@ module.exports = {
     },
     all_match: async (req, res) => {
         let LIST_TYPE = menu();
+        let all_day = await get_all_nearly_day();
         let dt = await get_all_match(req.params.time);
         return res.render('allmatch', {
             title: 'Kết quả trận đấu',
+            days: all_day,
             menu: LIST_TYPE,
             data: dt
         })
     },
     all_match_today: async (req, res) => {
         let LIST_TYPE = menu();
+        let all_day = await get_all_nearly_day();
         let dt = await get_all_match_today(req.params.time);
         return res.render('allmatch', {
             title: 'Lịch thi đấu hôm nay',
+            days: all_day,
             menu: LIST_TYPE,
             data: dt || []
         })
     },
     all_match_by_league: async (req, res) => {
         let LIST_TYPE = menu();
+        let all_day = await get_all_nearly_day();
         let dt = await get_all_match_by_league(req.params.id);
         let nameLeague = dt?.leagueMatchList[0]?.leagueName
         return res.render('allmatch', {
             title: `Lịch thi đấu ${nameLeague || ''}`,
+            days: all_day,
             menu: LIST_TYPE,
             data: dt || []
         })
@@ -89,17 +95,19 @@ module.exports = {
         })
     },
     get_all_match_fixture: async (req, res) => {
+        let all_day = await get_all_nearly_day();
         let LIST_TYPE = menu();
-        let dt = await get_all_match_fixture(req.params.key,null);
+        let dt = await get_all_match_fixture(req.params.key, req.params.time);
         let nameLeague = dt.leagueName
         return res.render('feature', {
             title: `Lịch thi đấu ${nameLeague || ''}`,
             menu: LIST_TYPE,
+            days: all_day,
             data: dt
         })
     },
     get_today_is_info: async (req, res) => {
-        let LIST_TYPE = get_today_info();
+        let LIST_TYPE = menu();
         let id = req.params.id;
         if (!id) id = '';
         let dt = await get_today_info();

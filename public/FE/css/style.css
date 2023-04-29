@@ -28,34 +28,6 @@
     background-image: url('../../dist/img/search-icon-1.png');
 }
 
-.news-content {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #000;
-}
-
-.news-title {
-    font-size: 1.3529411764706rem;
-    font-weight: 700;
-}
-
-.news-text {
-    margin-left: 20px;
-    height: 100%;
-    width: 100%;
-}
-
-.news-thumb {
-    width: 13.31rem;
-    height: 7.5rem;
-}
-
-.news-thumb>img {
-    width: 100%;
-    height: 100%;
-}
 
 .trandau {
     display: flex;
@@ -145,6 +117,173 @@
     margin-right: 10px;
 }
 
-.league-name{
+.league-name {
     margin-top: 20px;
+}
+
+.data-today {
+    padding: 10px;
+}
+
+.vncal tbody tr td a div.tot {
+    color: red;
+}
+
+.vncal tbody tr td a div.xau {
+    color: #95149A;
+}
+
+.vncal tbody tr td a div.dao {
+    /* color: white; */
+    font-size: 15px;
+    float: right;
+    width: 10%;
+}
+
+.vncal tbody tr td {
+    font-family: Tahoma, Arial;
+    cursor: pointer;
+}
+
+.vncal tbody tr td a div.sun {
+    color: #FF6000;
+}
+
+.vncal tbody tr td a div.duong {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+    width: 90%;
+}
+
+.vncal tbody tr td a div.am {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    float: right;
+    width: 100%;
+}
+
+.vncal tbody tr td a {
+    color: #000;
+}
+
+.sonar-date {
+    color: #FF8700;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid #bcccc3;
+    padding: 4px 6px 4px 6px;
+    letter-spacing: 3px;
+    margin-left: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.lunar-date {
+    color: #0B730B;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid #bcccc3;
+    padding: 4px 6px 4px 6px;
+    letter-spacing: 3px;
+    margin-left: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.news-place {
+    width: 100%;
+}
+
+.news-content {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #000;
+    float: left;
+    height: 200px;
+}
+
+.news-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.news-title a {
+    color: #333;
+    text-decoration: none !important;
+    transition: color 0.5s ease-in-out;
+}
+
+.news-text {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.news-thumb {
+    width: 15.31rem;
+    height: 9.5rem;
+    margin: auto;
+}
+
+.news-thumb>img {
+    width: 100%;
+    height: 100%;
+}
+
+.news-time {
+    text-align: right;
+}
+
+#date_select {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+}
+.date-info:hover{
+    color: #fff !important;
+    background-color: #1c53c5 !important;
+}
+.date-info:hover .dayofweek{
+    color: #fff !important;
+}
+
+.date-info.active{
+    color: #fff !important;
+    background-color: #1c53c5 !important;
+}
+.date-info.active .dayofweek{
+    color: #fff !important;
+}
+
+
+
+.dateis {
+    width: 100%;
+    display: block;
+    font-size: .95em;
+}
+
+.dayofweek {
+    font-size: 1.2em;
+    color: #1c53c5;
+    font-weight: 600;
 }

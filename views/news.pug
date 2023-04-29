@@ -4,6 +4,8 @@ block header
   include header.pug
 
 block content
+
+
   #content.site-content
     .ast-container
       #primary.content-area.primary
@@ -11,25 +13,63 @@ block content
           article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
             header.entry-header.ast-header-without-markup.entry-content.clear
               h1 Tin tức bóng đá tổng hợp
+
               #fullwidthMobi
                 .wrap-keonhacai
                   .heading_table
-                    each ncate in data 
+                    each ncate,index in data 
                       hr
                       h3.news-cate #{ncate.name}
-                      
-                      each news in ncate.news
-                        .news-content
-                          .news-thumb
-                            a(href=`/tin-tuc/${news.id}`) 
-                              img(src=`http://asset.asiasport.com/${news.coverImage}`, alt=`${news.title}`)
-                          .news-text
-                            .news-title 
-                              a(href=`/tin-tuc/${news.id}`) #{news.title}
-                            .news-time 
-                              #{news.publishedOn} 
+                      if index === 0
+                        .swiper-container.mySwiper
+                          .swiper-wrapper
+                            each news,subindex in ncate.news
+                              .swiper-slide
+                                .new-slider-box
+                                  .news-slider-img
+                                    a(href=`/tin-tuc/${news.id}`) 
+                                      img(src=`http://asset.asiasport.com/${news.coverImage}`, alt=`${news.title}`)
+                                  .news-slider-title
+                                    a(href=`/tin-tuc/${news.id}`) #{news.title}
+                                  .news-slider-time
+                                    - const date = new Date(news.publishedOn)
+                                    - const now = new Date()
+                                    - const diff = Math.abs(now - date)
+                                    - const minutes = Math.floor(diff / (1000 * 60))
+                                    - const hours = Math.floor(minutes / 60)
+                                    - const days = Math.floor(hours / 24)
+                                    - const months = Math.floor(days / 30)
+                                    - const years = Math.floor(months / 12)
+                                    - const rs = years > 0 ? years + ' năm trước' : months > 0 ? months + ' tháng trước' : days > 0 ? days + ' ngày trước' : hours > 0 ? hours + ' giờ trước' : minutes + ' phút trước'
+                                      span=rs
+                          div.swiper-button-prev.swiper-button-lock.swiper-button-white(role="button" tabindex="0" aria-label="Previous slide")
+                            img.swiper-button__img
+                          div.swiper-button-next.swiper-button-lock.swiper-button-white(role="button" tabindex="0" aria-label="Next slide")
+                            img.swiper-button__img
+                          span.swiper-notification(aria-live="assertive" aria-atomic="true")
 
-                  
+                      else
+                        each news in ncate.news
+                          .news-place
+                            .news-content
+                              .news-thumb
+                                a(href=`/tin-tuc/${news.id}`) 
+                                  img(src=`http://asset.asiasport.com/${news.coverImage}`, alt=`${news.title}`)
+                              .news-text
+                                .news-title 
+                                  a(href=`/tin-tuc/${news.id}`) #{news.title}
+                                  - const date = new Date(news.publishedOn)
+                                  - const now = new Date()
+                                  - const diff = Math.abs(now - date)
+                                  - const minutes = Math.floor(diff / (1000 * 60))
+                                  - const hours = Math.floor(minutes / 60)
+                                  - const days = Math.floor(hours / 24)
+                                  - const months = Math.floor(days / 30)
+                                  - const years = Math.floor(months / 12)
+                                  - const rs = years > 0 ? years + ' năm trước' : months > 0 ? months + ' tháng trước' : days > 0 ? days + ' ngày trước' : hours > 0 ? hours + ' giờ trước' : minutes + ' phút trước'
+                                .news-time=rs
+
+
       include left-menu.pug
 
 

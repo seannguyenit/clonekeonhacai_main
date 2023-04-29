@@ -10,10 +10,11 @@ block content
                 main#main.site-main
                     article#post-2.post-2.page.type-page.status-publish.has-post-thumbnail.ast-article-single
                         header.entry-header.ast-header-without-markup.entry-content.clear
-                            h1 #{title}
+                            h1=title
                             #fullwidthMobi
                                 .wrap-keonhacai
                                     .heading_table
+                                        include select-date.pug
                                         if data.leagueMatchList
                                             each league in data.leagueMatchList
                                                 hr

@@ -3,7 +3,7 @@
 .wrap-keonhacai {
     font-family: inter, Helvetica, sans-serif;
     margin: 0;
-    overflow: auto;
+    overflow: hidden;
     position: relative
 }
 

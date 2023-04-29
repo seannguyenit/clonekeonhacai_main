@@ -13,11 +13,12 @@ module.exports = {
             const mainBody = $('.main-body');
 
             // Remove any <style> or <script> tags from the selected element
-            mainBody.find('style, script, iframe ').remove();
-
+            mainBody.find('style, script, iframe').remove();
+            mainBody.find('.col-lg-4').remove();
+            mainBody.find('a').removeAttr('href');
             // Get the inner HTML of the selected element
             const innerHTML = mainBody.html();
-            return innerHTML;
+            return innerHTML.replaceAll('col-lg-8','col-lg-12');
 
             // Do something with the extracted element(s)
         } catch (error) {
