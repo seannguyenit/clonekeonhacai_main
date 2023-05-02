@@ -124,3 +124,14 @@
   max-width: 100%;
   height: auto;
 }
+
+@media (max-width: 768px) {
+    .swiper-slide{
+      width: 100% !important;
+    }
+    .new-slider-box{
+      width: 100% !important;
+    }
+
+}
+

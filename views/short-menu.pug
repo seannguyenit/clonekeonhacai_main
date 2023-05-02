@@ -1,0 +1,11 @@
+div(style='overflow: hidden; border: 1px solid #1c53c5; border-radius: 5px; margin-bottom: 10px;')
+  div(style='background-color: #1c53c5; color: #ffffff; margin-bottom: 5px; text-align: center;')
+    span(style='font-size: 14pt;')
+      strong Lịch thi đấu Bóng Đá
+  ul.ul-short-menu(style='margin: auto; overflow: hidden;')
+    if (menu[2] && menu[2].menu)
+      each l in menu[2].menu
+        li
+          strong
+            a(href=`/${l.action}/${menu[2].use_key?l.key:l.value}`)=l.country.replace("LTĐ","Lịch thi đấu bóng đá")
+    

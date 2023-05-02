@@ -15,6 +15,8 @@ module.exports = {
             // Remove any <style> or <script> tags from the selected element
             mainBody.find('style, script, iframe').remove();
             mainBody.find('.col-lg-4').remove();
+            mainBody.find('.vncal-header-next').remove();
+            mainBody.find('.vncal-header-preview').remove();
             mainBody.find('a').removeAttr('href');
             // Get the inner HTML of the selected element
             const innerHTML = mainBody.html();

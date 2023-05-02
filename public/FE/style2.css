@@ -10,9 +10,6 @@
 html {
  font-size:106.25%;
 }
-a {
- color:#ff6600;
-}
 a:hover,
 a:focus {
  color:var(--ast-global-color-1);

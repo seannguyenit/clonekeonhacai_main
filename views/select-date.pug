@@ -1,17 +1,25 @@
 
+include short-menu.pug
 #date_select
-    .date-info
-        span.dateis=days[0].date
+    .date-info.today-info
+        span.dateis(data-date=`${days[0].date}`)='Hôm nay'
         span.dayofweek=days[0].dayOfWeek
     .date-info
-        span.dateis=days[1].date
+        span.dateis(data-date=`${days[1].date}`)='Ngày mai'
         span.dayofweek=days[1].dayOfWeek
-    .date-info.today-info
-        span.dateis=days[2].date
+    .date-info
+        span.dateis(data-date=`${days[2].date}`)=days[2].show_date
         span.dayofweek=days[2].dayOfWeek
     .date-info
-        span.dateis=days[3].date
+        span.dateis(data-date=`${days[3].date}`)=days[3].show_date
         span.dayofweek=days[3].dayOfWeek
     .date-info
-        span.dateis=days[4].date
+        span.dateis(data-date=`${days[4].date}`)=days[4].show_date
         span.dayofweek=days[4].dayOfWeek
+    .date-info
+        span.dateis(data-date=`${days[5].date}`)=days[5].show_date
+        span.dayofweek=days[5].dayOfWeek
+    .date-info
+        span.dateis(data-date=`${days[6].date}`)=days[6].show_date
+        span.dayofweek=days[6].dayOfWeek
+

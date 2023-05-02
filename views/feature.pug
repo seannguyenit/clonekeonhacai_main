@@ -15,26 +15,29 @@ block content
                                 .wrap-keonhacai
                                     .heading_table
                                         //- include select-date.pug
-                                        if data
+                                        if data && data.matchDateList
                                             each league in data.matchDateList
-                                                hr
-                                                div.giaidau.d-flex
-                                                    img(src=`http://asset.asiasport.com/${data.logo}`, alt=`${league.leagueName}`)
-                                                    h3 #{league.matchDate}
-                                                hr
+                                                //- hr
+                                                //- div.giaidau.d-flex
+                                                //-     img(src=`http://asset.asiasport.com/${data.logo}`, alt=`${league.leagueName}`)
+                                                //-     h3 #{league.matchDate}
+                                                //- hr
                                                 each match in league.matchList
                                                     .match
-                                                        .matchtime 
-                                                            span #{match.matchTime} - #{match.matchDate}
+                                                        .matchdate #{match.matchDate}
                                                         .trandau 
-                                                                div.hometeam
-                                                                    span #{match.opponents[0].name}
+                                                            .matchtime #{match.matchStatus}
+                                                            .team 
+                                                                .hometeam
                                                                     img(src=`http://asset.asiasport.com/${match.opponents[0].logo}`, alt=`${match.opponents[0].name}`, width="25px")
-                                                                div.tyso
-                                                                    span #{match.opponents[0].score} - #{match.opponents[1].score}
-                                                                div.awayteam
+                                                                    span #{match.opponents[0].name}
+                                                                .awayteam
                                                                     img(src=`http://asset.asiasport.com/${match.opponents[1].logo}`, alt=`${match.opponents[1].name}`, width="25px")
                                                                     span #{match.opponents[1].name}
+                                                            .tyso
+                                                                span #{match.opponents[0].score||'-'}
+                                                                //- span -
+                                                                span #{match.opponents[1].score||'-'}
                                         else    
                                             span Không có dữ liệu
 
